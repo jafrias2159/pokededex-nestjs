@@ -1,0 +1,17 @@
+version: '3'
+name: pokemon-Stack!
+services:
+  db:
+    image: mongo:5
+    container_name: pokemon-mongo
+    environment:
+      MONGO_DATABASE: nestjs-pokemon
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+volumes:
+  mongo_data:
+    driver: local
