@@ -81,6 +81,10 @@ export class PokemonService {
     return;
   }
 
+  async truncate(): Promise<void> {
+    await this.pokemonModel.deleteMany({});
+  }
+
   async batchInsert(pokemons: CreatePokemonDto[]): Promise<Pokemon[]> {
     try {
       return await this.pokemonModel.insertMany(pokemons);
