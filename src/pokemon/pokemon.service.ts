@@ -80,4 +80,12 @@ export class PokemonService {
     }
     return;
   }
+
+  async batchInsert(pokemons: CreatePokemonDto[]): Promise<Pokemon[]> {
+    try {
+      return await this.pokemonModel.insertMany(pokemons);
+    } catch (error) {
+      this.handleExceptions(error);
+    }
+  }
 }
