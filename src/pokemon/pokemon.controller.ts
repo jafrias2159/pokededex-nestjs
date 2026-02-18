@@ -1,4 +1,12 @@
-import { Controller, Post, Body, Get, Param, Patch, Delete} from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Get,
+  Param,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { PokemonService } from './pokemon.service';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
@@ -6,7 +14,7 @@ import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id
 
 @Controller('pokemon')
 export class PokemonController {
-  constructor(private readonly pokemonService: PokemonService) { }
+  constructor(private readonly pokemonService: PokemonService) {}
 
   @Post()
   async create(@Body() createPokemonDto: CreatePokemonDto) {
@@ -19,7 +27,10 @@ export class PokemonController {
   }
 
   @Patch(':searchTerm')
-  update(@Param('searchTerm') searchTerm: string, @Body() updatePokemonDto: UpdatePokemonDto) {
+  update(
+    @Param('searchTerm') searchTerm: string,
+    @Body() updatePokemonDto: UpdatePokemonDto,
+  ) {
     return this.pokemonService.update(searchTerm, updatePokemonDto);
   }
 
