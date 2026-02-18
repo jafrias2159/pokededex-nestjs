@@ -6,7 +6,8 @@ import { AxiosAdapter } from 'src/common/adapters/axios-adapter';
 
 @Injectable()
 export class SeedService {
-  private readonly pokemonApiUrl = 'https://pokeapi.co/api/v2/pokemon?limit=10';
+  private readonly pokemonApiUrl =
+    'https://pokeapi.co/api/v2/pokemon?limit=600';
 
   constructor(
     private readonly pokemonService: PokemonService,
