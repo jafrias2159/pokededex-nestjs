@@ -6,6 +6,9 @@
 #DB DATA
 /mongo_data
 
+#env files
+.env
+
 # Logs
 logs
 *.log
